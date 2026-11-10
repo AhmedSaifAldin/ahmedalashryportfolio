@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahmed Alashry Portfolio</title>
 <link rel="icon" type="image/png" sizes="32x32" href="logos/mylogo.png">
+<link rel="apple-touch-icon" href="logos/mylogo.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a192f">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -1126,6 +1130,9 @@ var PORTFOLIO = {
   if (saved === 'ar') apply('ar');
   window.setPortfolioLanguage = apply;
 })();
+</script>
+<script>
+if ("serviceWorker" in navigator) { window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); }); }
 </script>
 </body>
 </html>
