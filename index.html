@@ -42,7 +42,11 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-family: var(--font-display); font-weight: 700; }
 .brand b { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: var(--gold); color: var(--ink); font-size: 15px; }
-.nav ul { display: flex; gap: 6px; list-style: none; overflow-x: auto; }
+.nav nav { flex: 1 1 0; min-width: 0; }
+.nav ul { display: flex; gap: 6px; list-style: none; overflow-x: auto; width: max-content; max-width: 100%; margin-inline-start: auto; scrollbar-width: none; }
+.lang-btn { flex: none; }
+.nav ul::-webkit-scrollbar { display: none; }
+.brand { flex: none; }
 .nav ul a { display: block; padding: 8px 12px; border-radius: 8px; text-decoration: none; color: #c9d4e6; font-size: 15px; font-weight: 500; white-space: nowrap; }
 .nav ul a:hover { color: #fff; background: rgba(255,255,255,.08); }
 
@@ -354,6 +358,10 @@ section { padding: 96px 0; }
   .gear-a { width: 64px; right: -8px; }
   .gear-b { width: 38px; right: 44px; top: -16px; }
   .brand span { display: none; }
+  .nav .wrap { gap: 8px; }
+  .nav ul a { padding: 8px 7px; font-size: 13px; }
+  .lang-btn { padding: 7px 12px; font-size: 13px; }
+  .ed-body { font-size: 10.5px; overflow-x: auto; }
   .map { width: calc(50% - 10px); }
 }
 @media (prefers-reduced-motion: reduce) {
