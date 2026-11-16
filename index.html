@@ -188,6 +188,12 @@ section { padding: 96px 0; }
 .app-info { padding-top: 26px; }
 .app-info h3 { font-size: 22px; color: var(--ink); }
 .app-info p { margin-top: 8px; color: var(--muted); font-size: 16px; }
+.veil { position: relative; }
+.lock { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 99px; background: var(--ink); color: var(--gold); font-weight: 600; font-size: 14.5px; text-decoration: none; box-shadow: 0 10px 28px rgba(13,27,51,.28); white-space: nowrap; transition: background .2s; }
+.lock:hover { background: #16294a; }
+.lock svg { width: 15px; height: 15px; }
+.blur { filter: blur(6px); -webkit-user-select: none; user-select: none; pointer-events: none; opacity: .9; }
+.tags li .blur { display: inline-block; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; list-style: none; }
 .tags li { padding: 3px 11px; border-radius: 99px; background: #e3eaf4; color: var(--ink-2); font-size: 13.5px; font-weight: 500; }
 
@@ -707,82 +713,80 @@ section { padding: 96px 0; }
 var PORTFOLIO = {
   apps: [
     { name: 'Inspector App', logo: 'logos/inspe.png',
-      description: 'Field Inspector Application',
-      tags: ['Mobile', 'Direct connection for online sessions'] },
+      description: 'A mobile application built for field teams.',
+      tags: ['Mobile', 'Field work'] },
     { name: 'Trip App', logo: 'logos/trip.png',
-      description: 'GPS application for tracking containers and drums',
-      tags: ['Mobile', 'Live Tracking'] },
+      description: 'A mobile application that supports day-to-day logistics.',
+      tags: ['Mobile', 'Logistics'] },
     { name: 'snapsheet', logo: 'logos/snap.png',
-      description: 'An application for technicians to photograph sites and generate reports automatically.',
-      tags: ['Mobile', 'Report Generator'] },
+      description: 'A mobile application that helps teams capture and document their work.',
+      tags: ['Mobile', 'Documentation'] },
     { name: 'qr code reader app', logo: 'logos/qr.png',
-      description: 'QR Code Business Card Generator',
-      tags: ['Mobile', 'QR Code Generator'] },
+      description: 'A simple mobile utility for everyday sharing.',
+      tags: ['Mobile', 'Utility'] },
     { name: 'Project Dashboard app', logo: 'logos/gacp.png',
-      description: 'A monitoring management application for tracking the indicators of all projects on a single screen.',
-      tags: ['Mobile', 'Live statistics update'] },
+      description: 'A mobile companion that keeps project information within reach.',
+      tags: ['Mobile', 'Monitoring'] },
     { name: 'rasd app', logo: 'logos/rasdlogo.png',
-      description: 'Surveillance camera application for monitoring vehicles in the city of Riyadh',
-      tags: ['Mobile', 'Live tracking data'] }
+      description: 'A mobile application that supports monitoring work.',
+      tags: ['Mobile', 'Monitoring'] }
   ],
- systems: [
+  systems: [
     { name: 'Operations Gate', logo: 'logos/op.png', ui: 'blue',
-      description: 'An operations management system where teams plan their work, track it day by day, and get reports and archives without manual effort.',
-      tags: ['Web', 'Operations', 'Planning', 'Reports', 'Archive'],
+      description: 'An operations system that helps teams organize their work and keep a clear record of it.',
+      tags: ['Web', 'Operations', 'Management'],
       steps: [
-        { title: 'Plan', text: 'Employees create monthly and daily plans and assign tasks to the right people.' },
-        { title: 'Execute and record', text: 'Work is updated as it happens, so progress against each plan is always current.' },
-        { title: 'Report and archive', text: 'Reports are generated automatically, and all data is archived and easy to find later.' }
+        { title: 'Organize', text: 'Teams set up their work in one shared place.' },
+        { title: 'Work', text: 'Progress is kept up to date as the work moves forward.' },
+        { title: 'Review', text: 'Results are collected and stored for later reference.' }
       ],
       benefits: [
-        { title: 'Organized work', text: 'Every team follows clear monthly and daily plans.' },
-        { title: 'Reports without effort', text: 'Reports are created automatically, with no manual compiling.' },
-        { title: 'Data that stays available', text: 'Archived records can be searched and reviewed at any time.' }
+        { title: 'Organized work', text: 'Teams work from a shared, clear structure.' },
+        { title: 'Less manual effort', text: 'Routine tasks are handled by the system.' },
+        { title: 'Information that stays available', text: 'Records remain accessible whenever they are needed.' }
       ] },
 
-
-      { name: 'Project Dashboard', logo: 'logos/gacp.png', ui: 'blue',
-      description: 'A live dashboard for monitoring projects. It brings the statistics from all the other systems into one screen, with a dynamic map of project zones and routes.',
-      tags: ['Web', 'Live statistics', 'Monitoring', 'Dynamic map'],
+    { name: 'Project Dashboard', logo: 'logos/gacp.png', ui: 'blue',
+      description: 'A monitoring dashboard that gathers project information in one place.',
+      tags: ['Web', 'Monitoring', 'Dashboard'],
       steps: [
-        { title: 'Connect the systems', text: 'Statistics from the other systems flow in automatically, so nothing is entered twice.' },
-        { title: 'See it live', text: 'All project indicators update in real time on a single screen for the monitoring team.' },
-        { title: 'Follow it on the map', text: 'A dynamic map shows each project zone and its routes, so progress is tracked by location.' }
+        { title: 'Connect', text: 'Information from different sources comes together in one place.' },
+        { title: 'Monitor', text: 'The team follows the current picture on a single screen.' },
+        { title: 'Act', text: 'Decisions are made with clear, up-to-date information.' }
       ],
       benefits: [
-        { title: 'One screen for everything', text: 'No need to open several systems to understand where each project stands.' },
-        { title: 'Monitoring that stays current', text: 'The team always works from live numbers, not yesterday\'s reports.' },
-        { title: 'Clear view by location', text: 'Zones and routes on the map make it easy to spot where attention is needed.' }
+        { title: 'One place for everything', text: 'No need to look in several places to see the full picture.' },
+        { title: 'Always current', text: 'The team works from up-to-date information.' },
+        { title: 'Clear overview', text: 'It is easy to see where attention is needed.' }
       ] },
 
-
-        { name: 'Points Map Project', logo: 'logos/pointmap.png', ui: 'red',
-      description: 'An interactive map for planning field work. Teams place points on the map, edit them freely, measure distances, and organize daily tasks into stops in the right order.',
-      tags: ['Web', 'Interactive map', 'GIS', 'Route planning'],
+    { name: 'Points Map Project', logo: 'logos/pointmap.png', ui: 'red',
+      description: 'An interactive map-based system that supports planning and organizing field work.',
+      tags: ['Web', 'Interactive map', 'Planning'],
       steps: [
-        { title: 'Place points', text: 'Add points on the map for each task or stop, and move, edit or remove them at any time.' },
-        { title: 'Measure and order', text: 'Distances are calculated on the map, and stops are arranged in order, starting with the one closest to the user.' },
-        { title: 'Distribute the day', text: 'Daily tasks are assigned as ordered stops, and the same setup can be reused across many projects.' }
+        { title: 'Set up', text: 'Teams prepare their work on a map.' },
+        { title: 'Organize', text: 'The work is arranged in a clear and practical order.' },
+        { title: 'Share', text: 'Each person receives what they need for the day.' }
       ],
       benefits: [
-        { title: 'Shorter routes', text: 'Visiting the nearest stop first reduces travel and saves time each day.' },
-        { title: 'Clear daily plans', text: 'Every person sees their tasks as ordered points on a map.' },
-        { title: 'One tool, many projects', text: 'Run any number of projects with the same map tools and workflow.' }
+        { title: 'Smarter planning', text: 'Work is arranged with less wasted effort.' },
+        { title: 'Clear daily view', text: 'Every person knows what is expected of them.' },
+        { title: 'Flexible use', text: 'The same approach adapts to different projects.' }
       ] },
 
-        { name: 'Rasd - Control Panel', logo: 'logos/rasdlogo.png', ui: 'red',
-      description: 'A control panel that turns an Excel file of damaged vehicle reports into assigned field work. Reports are sent to the Rasd app, sorted by distance and shared fairly between inspectors.',
-      tags: ['Web', 'Control panel', 'Excel import', 'Automation'],
+    { name: 'Rasd - Control Panel', logo: 'logos/rasdlogo.png', ui: 'red',
+      description: 'A control panel that helps manage and coordinate field work.',
+      tags: ['Web', 'Control panel', 'Automation'],
       steps: [
-        { title: 'Upload and assign', text: 'Upload the report details from an Excel file in one click, then assign one inspector or a group of inspectors to the task.' },
-        { title: 'Sent to Rasd', text: 'The system sends the details to the Rasd app. Reports are sorted automatically by distance to each inspector, nearest first, and reserved in the app. The work is shared evenly across the field team.' },
-        { title: 'Inspect and report', text: 'The inspector picks a report, goes to the location, selects the status, takes photos and documents the case. A report is then generated automatically.' }
+        { title: 'Prepare', text: 'Work is set up and assigned to the right people.' },
+        { title: 'Coordinate', text: 'The system organizes and distributes the work automatically.' },
+        { title: 'Follow up', text: 'Completed work is documented and summarized.' }
       ],
       benefits: [
-        { title: 'One click to start', text: 'Report details load into the system from a single Excel file, with no manual entry.' },
-        { title: 'Fair workload', text: 'Reports are distributed evenly, so no inspector is overloaded.' },
-        { title: 'Less travel', text: 'The nearest reports come first, which saves time on the road.' },
-        { title: 'Documented work', text: 'Every case has its status and photos, and the final report is created automatically.' }
+        { title: 'Quick start', text: 'Work gets underway with minimal manual effort.' },
+        { title: 'Balanced workload', text: 'Work is shared sensibly across the team.' },
+        { title: 'Efficient work', text: 'Less time is lost on routine coordination.' },
+        { title: 'Documented work', text: 'Every task leaves a clear record.' }
       ] }
   ]
 };
@@ -790,6 +794,22 @@ var PORTFOLIO = {
 /* ---- renderer (no need to edit) ---- */
 (function () {
   function esc(t) { return String(t == null ? '' : t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  /* Details are shown blurred. The real wording never reaches the page:
+     every text is swapped for same-length filler before it is drawn. */
+  var BLUR_DETAILS = true;
+  function mask(t) {
+    t = String(t == null ? '' : t);
+    if (!BLUR_DETAILS) return esc(t);
+    var seed = 7, out = '';
+    for (var i = 0; i < t.length; i++) {
+      var ch = t.charAt(i);
+      if (/[A-Za-z\u0600-\u06FF]/.test(ch)) { seed = (seed * 31 + i + 11) % 26; out += String.fromCharCode(97 + seed); }
+      else out += ch;
+    }
+    return esc(out);
+  }
+  var LOCK = BLUR_DETAILS ? '<a class="lock" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Details on request</span></a>' : '';
+  var B = BLUR_DETAILS ? ' class="blur"' : '';
   function tags(list) { return '<ul class="tags">' + (list || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>'; }
   function splash(item) {
     return item.logo ? '<div class="splash"><img src="' + esc(item.logo) + '" alt="' + esc(item.name) + ' logo" onerror="this.parentNode.remove()"></div>' : '';
@@ -802,14 +822,14 @@ var PORTFOLIO = {
 
   var ui = ['blue', 'red', 'gold'];
   document.getElementById('sysList').innerHTML = PORTFOLIO.systems.map(function (x, i) {
-    var steps = (x.steps || []).map(function (s) { return '<li><b>' + esc(s.title) + '</b><span>' + esc(s.text) + '</span></li>'; }).join('');
-    var ben = (x.benefits || []).map(function (s) { return '<li><b>' + esc(s.title) + '</b><span>' + esc(s.text) + '</span></li>'; }).join('');
+    var steps = (x.steps || []).map(function (s) { return '<li><b' + B + '>' + mask(s.title) + '</b><span' + B + '>' + mask(s.text) + '</span></li>'; }).join('');
+    var ben = (x.benefits || []).map(function (s) { return '<li><b' + B + '>' + mask(s.title) + '</b><span' + B + '>' + mask(s.text) + '</span></li>'; }).join('');
     return '<article class="sys' + (i % 2 ? ' flip' : '') + '">' +
       '<div class="monitor dev"><div class="screen" data-dash="' + esc(x.ui || ui[i % 3]) + '">' + splash(x) + '</div></div>' +
       '<div class="sys-text"><h3>' + esc(x.name) + '</h3><p>' + esc(x.description) + '</p>' + tags(x.tags) + '</div>' +
       '<div class="sys-more">' +
-        '<div class="panel"><h4>How it works</h4><ol class="flow">' + steps + '</ol></div>' +
-        '<div class="panel"><h4>How it serves the business</h4><ul class="serve">' + ben + '</ul></div>' +
+        '<div class="panel"><h4>How it works</h4><div class="veil"><ol class="flow">' + steps + '</ol>' + LOCK + '</div></div>' +
+        '<div class="panel"><h4>How it serves the business</h4><div class="veil"><ul class="serve">' + ben + '</ul>' + LOCK + '</div></div>' +
       '</div></article>';
   }).join('');
 })();
@@ -933,96 +953,92 @@ var PORTFOLIO = {
   "Data archive": "أرشفة البيانات",
   "Role access": "صلاحيات الأدوار",
   "Apps built for daily use in the field and at the counter. Each one opens on its own logo.": "تطبيقات مصمّمة للاستخدام اليومي في الميدان وفي مواقع الخدمة. كل تطبيق يفتح على شعاره.",
-  "Inspector App": "تطبيق المراقب",
-  "Field Inspector Application": "تطبيق المراقب الميداني",
-  "Direct connection for online sessions": "اتصال مباشر للجلسات الأونلاين",
-  "GPS application for tracking containers and drums": "تطبيق GPS لتتبع الحاويات والبراميل",
-  "Live Tracking": "تتبع مباشر",
-  "An application for technicians to photograph sites and generate reports automatically.": "تطبيق للفنيين لتصوير المواقع وإنشاء التقارير تلقائيًا.",
-  "Report Generator": "منشئ التقارير",
-  "qr code reader app": "تطبيق قارئ QR",
-  "QR Code Business Card Generator": "منشئ بطاقات الأعمال برمز QR",
-  "QR Code Generator": "منشئ رمز QR",
-  "Project Dashboard app": "تطبيق لوحة المشاريع",
-  "A monitoring management application for tracking the indicators of all projects on a single screen.": "تطبيق لإدارة المراقبة، لتتبّع مؤشرات جميع المشاريع في شاشة واحدة.",
-  "Live statistics update": "تحديث الإحصائيات مباشرة",
-  "rasd app": "تطبيق رصد",
-  "Surveillance camera application for monitoring vehicles in the city of Riyadh": "تطبيق كاميرات مراقبة لرصد المركبات في مدينة الرياض",
-  "Live tracking data": "بيانات تتبع مباشرة",
   "Systems and dashboards": "الأنظمة ولوحات المتابعة",
   "Full operational systems that replace scattered files and manual follow-ups with one place to see and act.": "أنظمة تشغيلية متكاملة تستبدل الملفات المتفرقة والمتابعة اليدوية بمكان واحد للمشاهدة والتنفيذ.",
   "How it works": "كيف يعمل",
   "How it serves the business": "كيف يخدم العمل",
-  "Operations": "العمليات",
-  "Planning": "التخطيط",
-  "Reports": "التقارير",
-  "Archive": "الأرشفة",
-  "Operations Gate": "بوابة العمليات",
-  "An operations management system where teams plan their work, track it day by day, and get reports and archives without manual effort.": "نظام لإدارة العمليات، يضع فيه الفريق خططه، ويتابع العمل يومًا بيوم، ويحصل على التقارير والأرشفة دون جهد يدوي.",
-  "Plan": "التخطيط",
-  "Employees create monthly and daily plans and assign tasks to the right people.": "ينشئ الموظفون خططًا شهرية ويومية ويوزّعون المهام على الأشخاص المناسبين.",
-  "Execute and record": "التنفيذ والتسجيل",
-  "Work is updated as it happens, so progress against each plan is always current.": "يُحدَّث العمل لحظة حدوثه، فيبقى التقدّم في كل خطة محدّثًا دائمًا.",
-  "Report and archive": "التقارير والأرشفة",
-  "Reports are generated automatically, and all data is archived and easy to find later.": "تُنشأ التقارير تلقائيًا، وتُؤرشف جميع البيانات ويسهل الوصول إليها لاحقًا.",
-  "Organized work": "عمل منظّم",
-  "Every team follows clear monthly and daily plans.": "كل فريق يعمل وفق خطط شهرية ويومية واضحة.",
-  "Reports without effort": "تقارير بلا جهد",
-  "Reports are created automatically, with no manual compiling.": "تُنشأ التقارير تلقائيًا دون تجميع يدوي.",
-  "Data that stays available": "بيانات متاحة دائمًا",
-  "Archived records can be searched and reviewed at any time.": "يمكن البحث في السجلات المؤرشفة ومراجعتها في أي وقت.",
-  "Project Dashboard": "لوحة المشاريع",
-  "A live dashboard for monitoring projects. It brings the statistics from all the other systems into one screen, with a dynamic map of project zones and routes.": "لوحة متابعة مباشرة للمشاريع. تجمع الإحصائيات من جميع الأنظمة الأخرى في شاشة واحدة، مع خريطة ديناميكية لنطاقات المشاريع ومساراتها.",
-  "Live statistics": "إحصائيات مباشرة",
+  "Details on request": "التفاصيل عند الطلب",
+  "Inspector App": "تطبيق المراقب",
+  "A mobile application built for field teams.": "تطبيق جوال مصمّم للفرق الميدانية.",
+  "Mobile": "جوال",
+  "Field work": "عمل ميداني",
+  "A mobile application that supports day-to-day logistics.": "تطبيق جوال يدعم العمليات اللوجستية اليومية.",
+  "Logistics": "لوجستيات",
+  "A mobile application that helps teams capture and document their work.": "تطبيق جوال يساعد الفرق على توثيق أعمالها.",
+  "Documentation": "توثيق",
+  "qr code reader app": "تطبيق قارئ QR",
+  "A simple mobile utility for everyday sharing.": "أداة جوال بسيطة للمشاركة اليومية.",
+  "Utility": "أداة",
+  "Project Dashboard app": "تطبيق لوحة المشاريع",
+  "A mobile companion that keeps project information within reach.": "تطبيق مرافق يُبقي معلومات المشاريع في متناول اليد.",
   "Monitoring": "المراقبة",
-  "Dynamic map": "خريطة ديناميكية",
-  "Connect the systems": "ربط الأنظمة",
-  "Statistics from the other systems flow in automatically, so nothing is entered twice.": "تصل الإحصائيات من الأنظمة الأخرى تلقائيًا، فلا يُدخَل أي شيء مرتين.",
-  "See it live": "شاهدها مباشرة",
-  "All project indicators update in real time on a single screen for the monitoring team.": "تتحدّث مؤشرات جميع المشاريع لحظيًا على شاشة واحدة لفريق المراقبة.",
-  "Follow it on the map": "تابعها على الخريطة",
-  "A dynamic map shows each project zone and its routes, so progress is tracked by location.": "تعرض خريطة ديناميكية نطاق كل مشروع ومساراته، فيُتابَع التقدّم حسب الموقع.",
-  "One screen for everything": "شاشة واحدة لكل شيء",
-  "No need to open several systems to understand where each project stands.": "لا حاجة لفتح عدة أنظمة لمعرفة وضع كل مشروع.",
-  "Monitoring that stays current": "مراقبة محدّثة دائمًا",
-  "The team always works from live numbers, not yesterday's reports.": "يعمل الفريق دائمًا على أرقام مباشرة، لا على تقارير الأمس.",
-  "Clear view by location": "رؤية واضحة حسب الموقع",
-  "Zones and routes on the map make it easy to spot where attention is needed.": "تسهّل النطاقات والمسارات على الخريطة معرفة أين يلزم الانتباه.",
+  "rasd app": "تطبيق رصد",
+  "A mobile application that supports monitoring work.": "تطبيق جوال يدعم أعمال المراقبة.",
+  "Operations Gate": "بوابة العمليات",
+  "An operations system that helps teams organize their work and keep a clear record of it.": "نظام عمليات يساعد الفرق على تنظيم عملها والاحتفاظ بسجل واضح له.",
+  "Web": "ويب",
+  "Operations": "العمليات",
+  "Management": "الإدارة",
+  "Organize": "التنظيم",
+  "Teams set up their work in one shared place.": "تُنظّم الفرق عملها في مكان واحد مشترك.",
+  "Work": "العمل",
+  "Progress is kept up to date as the work moves forward.": "يبقى التقدّم محدّثًا مع سير العمل.",
+  "Review": "المراجعة",
+  "Results are collected and stored for later reference.": "تُجمع النتائج وتُحفظ للرجوع إليها لاحقًا.",
+  "Organized work": "عمل منظّم",
+  "Teams work from a shared, clear structure.": "تعمل الفرق وفق هيكل مشترك وواضح.",
+  "Less manual effort": "جهد يدوي أقل",
+  "Routine tasks are handled by the system.": "يتولّى النظام المهام الروتينية.",
+  "Information that stays available": "معلومات متاحة دائمًا",
+  "Records remain accessible whenever they are needed.": "تبقى السجلات متاحة متى احتيج إليها.",
+  "Project Dashboard": "لوحة المشاريع",
+  "A monitoring dashboard that gathers project information in one place.": "لوحة متابعة تجمع معلومات المشاريع في مكان واحد.",
+  "Dashboard": "لوحة متابعة",
+  "Connect": "الربط",
+  "Information from different sources comes together in one place.": "تجتمع المعلومات من مصادر مختلفة في مكان واحد.",
+  "Monitor": "المتابعة",
+  "The team follows the current picture on a single screen.": "يتابع الفريق الصورة الحالية على شاشة واحدة.",
+  "Act": "التصرف",
+  "Decisions are made with clear, up-to-date information.": "تُتَّخذ القرارات بمعلومات واضحة ومحدّثة.",
+  "One place for everything": "مكان واحد لكل شيء",
+  "No need to look in several places to see the full picture.": "لا حاجة للبحث في أماكن متعددة لرؤية الصورة الكاملة.",
+  "Always current": "محدّث دائمًا",
+  "The team works from up-to-date information.": "يعمل الفريق بمعلومات محدّثة.",
+  "Clear overview": "نظرة عامة واضحة",
+  "It is easy to see where attention is needed.": "يسهل معرفة أين يلزم الانتباه.",
   "Points Map Project": "مشروع خريطة النقاط",
-  "An interactive map for planning field work. Teams place points on the map, edit them freely, measure distances, and organize daily tasks into stops in the right order.": "خريطة تفاعلية لتخطيط العمل الميداني. يضع الفريق النقاط على الخريطة، ويعدّلها بحرية، ويقيس المسافات، وينظّم مهام اليوم في نقاط توقف مرتبة.",
+  "An interactive map-based system that supports planning and organizing field work.": "نظام يعتمد على خريطة تفاعلية لدعم تخطيط العمل الميداني وتنظيمه.",
   "Interactive map": "خريطة تفاعلية",
-  "Route planning": "تخطيط المسارات",
-  "Place points": "ضع النقاط",
-  "Add points on the map for each task or stop, and move, edit or remove them at any time.": "أضف نقاطًا على الخريطة لكل مهمة أو نقطة توقف، وحرّكها أو عدّلها أو احذفها في أي وقت.",
-  "Measure and order": "قِس ورتّب",
-  "Distances are calculated on the map, and stops are arranged in order, starting with the one closest to the user.": "تُحسب المسافات على الخريطة وتُرتَّب نقاط التوقف بدءًا بالأقرب إلى المستخدم.",
-  "Distribute the day": "وزّع اليوم",
-  "Daily tasks are assigned as ordered stops, and the same setup can be reused across many projects.": "تُوزَّع مهام اليوم كنقاط توقف مرتبة، ويمكن إعادة استخدام الإعداد نفسه في مشاريع كثيرة.",
-  "Shorter routes": "مسارات أقصر",
-  "Visiting the nearest stop first reduces travel and saves time each day.": "زيارة أقرب نقطة أولًا تقلّل التنقل وتوفّر الوقت كل يوم.",
-  "Clear daily plans": "خطط يومية واضحة",
-  "Every person sees their tasks as ordered points on a map.": "يرى كل شخص مهامه كنقاط مرتبة على الخريطة.",
-  "One tool, many projects": "أداة واحدة لمشاريع كثيرة",
-  "Run any number of projects with the same map tools and workflow.": "شغّل أي عدد من المشاريع بنفس أدوات الخرائط وآلية العمل.",
+  "Planning": "التخطيط",
+  "Set up": "الإعداد",
+  "Teams prepare their work on a map.": "تُجهّز الفرق عملها على الخريطة.",
+  "The work is arranged in a clear and practical order.": "يُرتَّب العمل بشكل واضح وعملي.",
+  "Share": "المشاركة",
+  "Each person receives what they need for the day.": "يحصل كل شخص على ما يحتاجه ليومه.",
+  "Smarter planning": "تخطيط أذكى",
+  "Work is arranged with less wasted effort.": "يُنظَّم العمل بجهد ضائع أقل.",
+  "Clear daily view": "رؤية يومية واضحة",
+  "Every person knows what is expected of them.": "يعرف كل شخص المطلوب منه.",
+  "Flexible use": "استخدام مرن",
+  "The same approach adapts to different projects.": "يتكيّف الأسلوب نفسه مع مشاريع مختلفة.",
   "Rasd - Control Panel": "رصد - لوحة التحكم",
-  "A control panel that turns an Excel file of damaged vehicle reports into assigned field work. Reports are sent to the Rasd app, sorted by distance and shared fairly between inspectors.": "لوحة تحكم تحوّل ملف Excel لبلاغات المركبات التالفة إلى مهام ميدانية مُسندة. تُرسل البلاغات إلى تطبيق رصد، وتُرتَّب حسب المسافة وتُوزَّع بعدالة بين المراقبين.",
+  "A control panel that helps manage and coordinate field work.": "لوحة تحكم تساعد على إدارة العمل الميداني وتنسيقه.",
   "Control panel": "لوحة تحكم",
-  "Excel import": "استيراد Excel",
   "Automation": "أتمتة",
-  "Upload and assign": "ارفع وكلّف",
-  "Upload the report details from an Excel file in one click, then assign one inspector or a group of inspectors to the task.": "ارفع تفاصيل البلاغات من ملف Excel بضغطة واحدة، ثم كلّف مراقبًا أو مجموعة مراقبين بالمهمة.",
-  "Sent to Rasd": "الإرسال إلى رصد",
-  "The system sends the details to the Rasd app. Reports are sorted automatically by distance to each inspector, nearest first, and reserved in the app. The work is shared evenly across the field team.": "يرسل النظام التفاصيل إلى تطبيق رصد. تُرتَّب البلاغات تلقائيًا حسب المسافة إلى كل مراقب، الأقرب أولًا، وتُحجز في التطبيق. ويتوزّع العمل بالتساوي على الفريق الميداني.",
-  "Inspect and report": "الفحص والتقرير",
-  "The inspector picks a report, goes to the location, selects the status, takes photos and documents the case. A report is then generated automatically.": "يختار المراقب بلاغًا، ويذهب إلى الموقع، ويحدّد الحالة، ويصوّر ويوثّق الحالة. ثم يُنشأ التقرير تلقائيًا.",
-  "One click to start": "بضغطة واحدة تبدأ",
-  "Report details load into the system from a single Excel file, with no manual entry.": "تُحمَّل تفاصيل البلاغات إلى النظام من ملف Excel واحد دون إدخال يدوي.",
-  "Fair workload": "توزيع عادل للعمل",
-  "Reports are distributed evenly, so no inspector is overloaded.": "تُوزَّع البلاغات بالتساوي، فلا يُرهَق أي مراقب.",
-  "Less travel": "تنقّل أقل",
-  "The nearest reports come first, which saves time on the road.": "تأتي أقرب البلاغات أولًا، مما يوفّر الوقت على الطريق.",
+  "Prepare": "التجهيز",
+  "Work is set up and assigned to the right people.": "يُجهَّز العمل ويُسنَد إلى الأشخاص المناسبين.",
+  "Coordinate": "التنسيق",
+  "The system organizes and distributes the work automatically.": "ينظّم النظام العمل ويوزّعه تلقائيًا.",
+  "Follow up": "المتابعة",
+  "Completed work is documented and summarized.": "يُوثَّق العمل المنجز ويُلخَّص.",
+  "Quick start": "بداية سريعة",
+  "Work gets underway with minimal manual effort.": "ينطلق العمل بأقل جهد يدوي.",
+  "Balanced workload": "عبء عمل متوازن",
+  "Work is shared sensibly across the team.": "يُوزَّع العمل بشكل معقول على الفريق.",
+  "Efficient work": "عمل أكفأ",
+  "Less time is lost on routine coordination.": "وقت أقل يضيع في التنسيق الروتيني.",
   "Documented work": "عمل موثّق",
-  "Every case has its status and photos, and the final report is created automatically.": "لكل حالة وضعها وصورها، ويُنشأ التقرير النهائي تلقائيًا.",
+  "Every task leaves a clear record.": "كل مهمة تترك سجلًا واضحًا.",
   "Get the apps": "حمّل التطبيقات",
   "Download the apps from the App Store or Google Play.": "حمّل التطبيقات من App Store أو Google Play.",
   "GIS and map making": "نظم المعلومات الجغرافية ورسم الخرائط",
