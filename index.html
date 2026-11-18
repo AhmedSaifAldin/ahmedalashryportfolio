@@ -711,9 +711,9 @@ var PORTFOLIO = {
         { title: 'Review', text: 'Results are collected and stored for later reference.' }
       ],
       benefits: [
-        { title: 'Organized work', text: 'Teams work from a shared, clear structure.' },
-        { title: 'Less manual effort', text: 'Routine tasks are handled by the system.' },
-        { title: 'Information that stays available', text: 'Records remain accessible whenever they are needed.' }
+        { title: 'Better organization', text: 'Work is clear and orderly for everyone.' },
+        { title: 'Less manual effort', text: 'More time for the work that matters.' },
+        { title: 'Reliable records', text: 'Information is available whenever it is needed.' }
       ] },
 
     { name: 'Project Dashboard', logo: 'logos/gacp.png', ui: 'blue',
@@ -725,9 +725,9 @@ var PORTFOLIO = {
         { title: 'Act', text: 'Decisions are made with clear, up-to-date information.' }
       ],
       benefits: [
-        { title: 'One place for everything', text: 'No need to look in several places to see the full picture.' },
-        { title: 'Always current', text: 'The team works from up-to-date information.' },
-        { title: 'Clear overview', text: 'It is easy to see where attention is needed.' }
+        { title: 'Clear visibility', text: 'Teams always know where things stand.' },
+        { title: 'Confident decisions', text: 'Managers decide with less guesswork.' },
+        { title: 'Time saved', text: 'Less time spent asking for updates and preparing reports.' }
       ] },
 
     { name: 'Points Map Project', logo: 'logos/pointmap.png', ui: 'red',
@@ -739,9 +739,9 @@ var PORTFOLIO = {
         { title: 'Share', text: 'Each person receives what they need for the day.' }
       ],
       benefits: [
-        { title: 'Smarter planning', text: 'Work is arranged with less wasted effort.' },
-        { title: 'Clear daily view', text: 'Every person knows what is expected of them.' },
-        { title: 'Flexible use', text: 'The same approach adapts to different projects.' }
+        { title: 'Smarter planning', text: 'Less wasted time and effort in the field.' },
+        { title: 'Clear expectations', text: 'Everyone knows what is expected of them.' },
+        { title: 'Flexible use', text: 'Adapts to different projects.' }
       ] },
 
     { name: 'Rasd - Control Panel', logo: 'logos/rasdlogo.png', ui: 'red',
@@ -753,9 +753,9 @@ var PORTFOLIO = {
         { title: 'Follow up', text: 'Completed work is documented and summarized.' }
       ],
       benefits: [
-        { title: 'Quick start', text: 'Work gets underway with minimal manual effort.' },
-        { title: 'Balanced workload', text: 'Work is shared sensibly across the team.' },
-        { title: 'Efficient work', text: 'Less time is lost on routine coordination.' },
+        { title: 'Quick start', text: 'Work gets underway faster.' },
+        { title: 'Balanced workload', text: 'Work is shared fairly across the team.' },
+        { title: 'Less coordination time', text: 'More time for actual work.' },
         { title: 'Documented work', text: 'Every task leaves a clear record.' }
       ] }
   ]
@@ -793,13 +793,13 @@ var PORTFOLIO = {
   var ui = ['blue', 'red', 'gold'];
   document.getElementById('sysList').innerHTML = PORTFOLIO.systems.map(function (x, i) {
     var steps = (x.steps || []).map(function (s) { return '<li><b' + B + '>' + mask(s.title) + '</b><span' + B + '>' + mask(s.text) + '</span></li>'; }).join('');
-    var ben = (x.benefits || []).map(function (s) { return '<li><b' + B + '>' + mask(s.title) + '</b><span' + B + '>' + mask(s.text) + '</span></li>'; }).join('');
+    var ben = (x.benefits || []).map(function (s) { return '<li><b>' + esc(s.title) + '</b><span>' + esc(s.text) + '</span></li>'; }).join('');
     return '<article class="sys' + (i % 2 ? ' flip' : '') + '">' +
       '<div class="monitor dev"><div class="screen" data-dash="' + esc(x.ui || ui[i % 3]) + '">' + splash(x) + '</div></div>' +
       '<div class="sys-text"><h3>' + esc(x.name) + '</h3><p>' + esc(x.description) + '</p>' + tags(x.tags) + '</div>' +
       '<div class="sys-more">' +
         '<div class="panel"><h4>How it works</h4><div class="veil"><ol class="flow">' + steps + '</ol>' + LOCK + '</div></div>' +
-        '<div class="panel"><h4>How it serves the business</h4><div class="veil"><ul class="serve">' + ben + '</ul>' + LOCK + '</div></div>' +
+        '<div class="panel"><h4>How it serves the business</h4><div class="veil"><ul class="serve">' + ben + '</ul></div></div>' +
       '</div></article>';
   }).join('');
 })();
@@ -1008,6 +1008,25 @@ var PORTFOLIO = {
   "Less time is lost on routine coordination.": "وقت أقل يضيع في التنسيق الروتيني.",
   "Documented work": "عمل موثّق",
   "Every task leaves a clear record.": "كل مهمة تترك سجلًا واضحًا.",
+  "Better organization": "تنظيم أفضل",
+  "Work is clear and orderly for everyone.": "يصبح العمل واضحًا ومرتبًا للجميع.",
+  "More time for the work that matters.": "وقت أكبر للأعمال المهمة.",
+  "Reliable records": "سجلات موثوقة",
+  "Information is available whenever it is needed.": "المعلومات متاحة متى احتيج إليها.",
+  "Clear visibility": "رؤية واضحة",
+  "Teams always know where things stand.": "تعرف الفرق دائمًا أين وصل العمل.",
+  "Confident decisions": "قرارات واثقة",
+  "Managers decide with less guesswork.": "يقرّر المديرون بتخمين أقل.",
+  "Time saved": "وقت موفَّر",
+  "Less time spent asking for updates and preparing reports.": "وقت أقل في طلب التحديثات وإعداد التقارير.",
+  "Less wasted time and effort in the field.": "وقت وجهد أقل يضيعان في الميدان.",
+  "Clear expectations": "توقعات واضحة",
+  "Everyone knows what is expected of them.": "يعرف كل شخص المطلوب منه.",
+  "Adapts to different projects.": "يتكيّف مع مشاريع مختلفة.",
+  "Work gets underway faster.": "ينطلق العمل بسرعة أكبر.",
+  "Work is shared fairly across the team.": "يُوزَّع العمل بعدالة على الفريق.",
+  "Less coordination time": "وقت تنسيق أقل",
+  "More time for actual work.": "وقت أكبر للعمل الفعلي.",
   "Get the apps": "حمّل التطبيقات",
   "Download the apps from the App Store or Google Play.": "حمّل التطبيقات من App Store أو Google Play.",
   "GIS and map making": "نظم المعلومات الجغرافية ورسم الخرائط",
